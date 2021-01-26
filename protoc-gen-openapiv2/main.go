@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/codegenerator"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/internal/genopenapi"
+	"github.com/zhgsky/grpc-gateway/v2/internal/codegenerator"
+	"github.com/zhgsky/grpc-gateway/v2/internal/descriptor"
+	"github.com/zhgsky/grpc-gateway/v2/protoc-gen-openapiv2/internal/genopenapi"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )

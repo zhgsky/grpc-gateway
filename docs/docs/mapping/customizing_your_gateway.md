@@ -13,9 +13,9 @@ parent: Mapping
 
 You might want to serialize request/response messages in MessagePack instead of JSON, for example:
 
-1. Write a custom implementation of [`Marshaler`](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#Marshaler).
+1. Write a custom implementation of [`Marshaler`](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#Marshaler).
 
-2. Register your marshaler with [`WithMarshalerOption`](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#WithMarshalerOption).
+2. Register your marshaler with [`WithMarshalerOption`](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#WithMarshalerOption).
 
    e.g.
 
@@ -26,7 +26,7 @@ You might want to serialize request/response messages in MessagePack instead of 
    )
    ```
 
-You can see [the default implementation for JSON](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/runtime/marshal_jsonpb.go) for reference.
+You can see [the default implementation for JSON](https://github.com/zhgsky/grpc-gateway/blob/master/runtime/marshal_jsonpb.go) for reference.
 
 ### Using proto names in JSON
 
@@ -101,11 +101,11 @@ mux := runtime.NewServeMux(
 
 ## Mapping from HTTP request headers to gRPC client metadata
 
-You might not like [the default mapping rule](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#DefaultHeaderMatcher) and might want to pass through all the HTTP headers, for example:
+You might not like [the default mapping rule](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#DefaultHeaderMatcher) and might want to pass through all the HTTP headers, for example:
 
-1. Write a [`HeaderMatcherFunc`](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#HeaderMatcherFunc).
+1. Write a [`HeaderMatcherFunc`](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#HeaderMatcherFunc).
 
-2. Register the function with [`WithIncomingHeaderMatcher`](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#WithIncomingHeaderMatcher)
+2. Register the function with [`WithIncomingHeaderMatcher`](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#WithIncomingHeaderMatcher)
 
    e.g.
 
@@ -126,7 +126,7 @@ You might not like [the default mapping rule](https://pkg.go.dev/github.com/grpc
    )
    ```
 
-To keep the [the default mapping rule](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#DefaultHeaderMatcher) alongside with your own rules write:
+To keep the [the default mapping rule](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#DefaultHeaderMatcher) alongside with your own rules write:
 
 ```go
 func CustomMatcher(key string) (string, bool) {
@@ -164,7 +164,7 @@ if md, ok := metadata.FromIncomingContext(ctx); ok {
 
 ## Mapping from gRPC server metadata to HTTP response headers
 
-Use [`WithOutgoingHeaderMatcher`](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#WithOutgoingHeaderMatcher). See [gRPC metadata docs](https://github.com/grpc/grpc-go/blob/master/Documentation/grpc-metadata.md) for more info on sending / receiving gRPC metadata, for example:
+Use [`WithOutgoingHeaderMatcher`](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#WithOutgoingHeaderMatcher). See [gRPC metadata docs](https://github.com/grpc/grpc-go/blob/master/Documentation/grpc-metadata.md) for more info on sending / receiving gRPC metadata, for example:
 
 ```go
 if appendCustomHeader {
@@ -193,7 +193,7 @@ func myFilter(ctx context.Context, w http.ResponseWriter, resp proto.Message) er
 }
 ```
 
-2. Register the filter with [`WithForwardResponseOption`](https://pkg.go.dev/github.com/grpc-ecosystem/grpc-gateway/runtime?tab=doc#WithForwardResponseOption)
+2. Register the filter with [`WithForwardResponseOption`](https://pkg.go.dev/github.com/zhgsky/grpc-gateway/runtime?tab=doc#WithForwardResponseOption)
 
 e.g.
 

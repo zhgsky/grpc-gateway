@@ -8,7 +8,7 @@ package openapiconfig
 
 import (
 	proto "github.com/golang/protobuf/proto"
-	options "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
+	options "github.com/zhgsky/grpc-gateway/v2/protoc-gen-openapiv2/options"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

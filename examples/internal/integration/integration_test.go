@@ -20,10 +20,10 @@ import (
 
 	emptypb "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/go-cmp/cmp"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/pathenum"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/sub"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/zhgsky/grpc-gateway/v2/examples/internal/proto/examplepb"
+	"github.com/zhgsky/grpc-gateway/v2/examples/internal/proto/pathenum"
+	"github.com/zhgsky/grpc-gateway/v2/examples/internal/proto/sub"
+	"github.com/zhgsky/grpc-gateway/v2/runtime"
 	statuspb "google.golang.org/genproto/googleapis/rpc/status"
 	fieldmaskpb "google.golang.org/genproto/protobuf/field_mask"
 	"google.golang.org/grpc/codes"
@@ -48,7 +48,7 @@ func TestEcho(t *testing.T) {
 			testEchoOneof1(t, 8088, apiPrefix, "application/json")
 			testEchoOneof2(t, 8088, apiPrefix, "application/json")
 			testEchoBody(t, 8088, apiPrefix)
-			// Use SendHeader/SetTrailer without gRPC server https://github.com/grpc-ecosystem/grpc-gateway/issues/517#issuecomment-684625645
+			// Use SendHeader/SetTrailer without gRPC server https://github.com/zhgsky/grpc-gateway/issues/517#issuecomment-684625645
 			testEchoBody(t, 8089, apiPrefix)
 		})
 	}
@@ -62,15 +62,13 @@ func TestEchoPatch(t *testing.T) {
 
 	sent := examplepb.DynamicMessage{
 		StructField: &structpb.Struct{Fields: map[string]*structpb.Value{
-		"struct_key": {Kind: &structpb.Value_StructValue{
-			StructValue: &structpb.Struct{Fields: map[string]*structpb.Value{
-				"layered_struct_key": {Kind: &structpb.Value_StringValue{StringValue: "struct_val"}},
-			}},
-		}}}},
-		ValueField: &structpb.Value{Kind: &structpb.Value_StructValue{StructValue:
-			&structpb.Struct{Fields: map[string]*structpb.Value{
-				"value_struct_key": {Kind: &structpb.Value_StringValue{StringValue: "value_struct_val"},
-			}}},
+			"struct_key": {Kind: &structpb.Value_StructValue{
+				StructValue: &structpb.Struct{Fields: map[string]*structpb.Value{
+					"layered_struct_key": {Kind: &structpb.Value_StringValue{StringValue: "struct_val"}},
+				}},
+			}}}},
+		ValueField: &structpb.Value{Kind: &structpb.Value_StructValue{StructValue: &structpb.Struct{Fields: map[string]*structpb.Value{
+			"value_struct_key": {Kind: &structpb.Value_StringValue{StringValue: "value_struct_val"}}}},
 		}},
 	}
 	payload, err := protojson.MarshalOptions{UseProtoNames: true}.Marshal(&sent)

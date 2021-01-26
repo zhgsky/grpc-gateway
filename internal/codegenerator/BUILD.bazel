@@ -8,7 +8,7 @@ go_library(
         "doc.go",
         "parse_req.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/v2/internal/codegenerator",
+    importpath = "github.com/zhgsky/grpc-gateway/v2/internal/codegenerator",
     deps = [
         "@org_golang_google_protobuf//proto:go_default_library",
         "@org_golang_google_protobuf//types/pluginpb:go_default_library",

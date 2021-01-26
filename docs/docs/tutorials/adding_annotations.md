@@ -42,7 +42,7 @@ message HelloReply {
 }
 ```
 
-See [a_bit_of_everything.proto](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/examples/internal/proto/examplepb/a_bit_of_everything.proto) for examples of more annotations you can add to customize gateway behavior.
+See [a_bit_of_everything.proto](https://github.com/zhgsky/grpc-gateway/blob/master/examples/internal/proto/examplepb/a_bit_of_everything.proto) for examples of more annotations you can add to customize gateway behavior.
 
 ## Generating the gRPC-Gateway stubs
 
@@ -111,7 +111,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/zhgsky/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 
 	helloworldpb "github.com/myuser/myrepo/proto/helloworld"
